@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace RuleEngileDecorator
 {
@@ -27,6 +28,16 @@ namespace RuleEngileDecorator
         public string Category;
 
         public RunAttribute()
+        {
+        }
+    }
+
+    [AttributeUsage(AttributeTargets.Method)]
+    public class RunAsyncAttribute : Attribute
+    {
+        public string Category;
+
+        public RunAsyncAttribute()
         {
         }
     }
@@ -72,6 +83,50 @@ namespace RuleEngileDecorator
             });
 
             return result;
+        }
+
+        public async Task<bool> IsValidAsync()
+        {
+            var rules = Util
+                .GetTypesDecoratedWith<RuleAttribute>(Category);
+
+            var areAllRulesValid = true;
+
+            foreach (var rule in rules)
+            {
+                var ruleInstance = Activator.CreateInstance(rule);
+
+                var asyncValidationMethods = rule.GetMethods().Where(m =>
+                    m.GetCustomAttribute<RunAsyncAttribute>() != null);
+
+                if (asyncValidationMethods == null)
+                {
+                    continue;
+                }
+
+                var isValid = true;
+
+                foreach (var m in asyncValidationMethods)
+                {
+                    var task = (Task<bool>)m.Invoke(ruleInstance, new[] { RuleContext });
+
+                    var result = await task;
+
+                    if (result is bool isOk && isOk == false)
+                    {
+                        isValid = false;
+                        break;
+                    }
+                }
+
+                if (isValid == false)
+                {
+                    areAllRulesValid = false;
+                    break;
+                }
+            }
+
+            return areAllRulesValid;
         }
     }
 
