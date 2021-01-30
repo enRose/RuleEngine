@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.808.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuleEngileDecorator", "RuleEngileDecorator\RuleEngileDecorator.csproj", "{C1F4A5BA-D5B1-4C4C-AD6E-32E7E144460B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuleEngineTest", "RuleEngineTest\RuleEngineTest.csproj", "{C9CBE368-BE5A-46FE-B729-0C1B73DEBA95}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1F4A5BA-D5B1-4C4C-AD6E-32E7E144460B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1F4A5BA-D5B1-4C4C-AD6E-32E7E144460B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1F4A5BA-D5B1-4C4C-AD6E-32E7E144460B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1F4A5BA-D5B1-4C4C-AD6E-32E7E144460B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9CBE368-BE5A-46FE-B729-0C1B73DEBA95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9CBE368-BE5A-46FE-B729-0C1B73DEBA95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9CBE368-BE5A-46FE-B729-0C1B73DEBA95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9CBE368-BE5A-46FE-B729-0C1B73DEBA95}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3E722211-6E88-4F27-9539-4122AA9BD638}
+	EndGlobalSection
+EndGlobal
